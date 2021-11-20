@@ -1,0 +1,43 @@
+<!-- <div>
+<span 
+routerLink="/" 
+[routerLinkActive]="'active'"
+[routerLinkActiveOptions]="{ exact: true }">Main page</span>
+<span 
+routerLink="/list"
+[routerLinkActive]="'active'"
+[routerLinkActiveOptions]="{ exact: true }">List</span>
+<span
+routerLink="/adding"
+[routerLinkActive]="'active'"
+[routerLinkActiveOptions]="{ exact: true }">Add product</span>
+</div>    -->
+<div class="container">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" [routerLink] = "'/'">ProductList</a>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+        <div class="navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" 
+              [routerLink] = "'/'"
+              [routerLinkActive] = "'active'"
+              [routerLinkActiveOptions] = "{exact:true}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" 
+              [routerLink] = "'/list'"
+              [routerLinkActive] = "'active'"
+              [routerLinkActiveOptions] = "{exact:true}">Products list</a>
+            <li>
+                <a class="nav-link" 
+                [routerLink] = "'/adding'"
+                [routerLinkActive] = "'active'"
+                [routerLinkActiveOptions] = "{exact:true}">Add product</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+</div>

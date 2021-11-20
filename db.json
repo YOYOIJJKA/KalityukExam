@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "name": "asdasdasd",
+      "price": 6,
+      "producer": "dddddddd",
+      "weight": 9,
+      "amount": 1,
+      "category": "Техника",
+      "id": 1
+    },
+    {
+      "name": "dddddd",
+      "price": 0,
+      "producer": "",
+      "weight": 2,
+      "amount": 3,
+      "category": "Телефоны",
+      "id": 2
+    },
+    {
+      "name": "fasddddd",
+      "price": 14,
+      "producer": "ddddd",
+      "weight": 2,
+      "amount": 100,
+      "category": "Книги",
+      "id": 3
+    },
+    {
+      "name": "adddddddssssssssss",
+      "price": 37,
+      "producer": "",
+      "weight": 14,
+      "amount": 0,
+      "category": "Мебель",
+      "id": 4
+    }
+  ]
+}

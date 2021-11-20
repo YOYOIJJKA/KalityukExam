@@ -1,0 +1,44 @@
+<div class="container">
+  <form [formGroup] = "productForm">
+    <p>{{id?"Редактирование":"Создание"}}</p>
+
+    <label>Имя</label>
+    <input class="form-control" placeholder="Name" formControlName ="name" [ngClass] = "{
+        'hasError': productForm.get('name')?.invalid && productForm.get('name')?.touched}">
+
+    <label>Цена</label>
+    <input class="form-control" placeholder="Price" type="number" formControlName ="price" [ngClass] = "{
+        'hasError': productForm.get('price')?.invalid && productForm.get('price')?.touched}">
+
+    <label>Производитель</label>
+    <input class="form-control" placeholder="Producer" formControlName ="producer" [ngClass] = "{
+        'hasError': productForm.get('producer')?.invalid && productForm.get('producer')?.touched}">
+
+    <label>Вес</label>
+    <input class="form-control" placeholder="Weight" type="number" formControlName ="weight" [ngClass] = "{
+        'hasError': productForm.get('weight')?.invalid && productForm.get('weight')?.touched}">
+
+    <label>Количество</label>
+    <input class="form-control" type="number" placeholder="Number" formControlName ="amount" [ngClass] = "{
+        'hasError': productForm.get('amount')?.invalid && productForm.get('amount')?.touched}">
+
+    <label>Категория</label>
+    <select name="category" class="form-control" formControlName ="category" [ngClass] = "{
+        'hasError': productForm.get('category')?.invalid && productForm.get('category')?.touched}">
+      <option value="Мебель">Мебель</option>
+      <option value="Техника">Техника</option>
+      <option value="Книги">Книги</option>
+      <option value="Телефоны">Телефоны</option>
+    </select>
+    <ng-container *ngIf="id!=null; else elseTemplate">
+      <button class="btn btn-primary" [disabled]="productForm.invalid" (click)="editProduct()" *ngIf="id!=null" style="margin-top: 10px;" type="button">Подтвердить</button>
+      <button type="button" class="btn btn-secondary" style="margin-top: 10px;" [routerLink] = "'/list'">Отмена</button>
+      <button class="btn btn-danger" style="margin-top: 10px;" type="button" (click)="deleteProduct(id)">Удалить</button>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <button class="btn btn-primary" [disabled]="productForm.invalid" type="button" style="margin-top: 10px;" (click)="createProduct()">Создать</button>
+    </ng-template>
+    
+  </form>
+
+</div>

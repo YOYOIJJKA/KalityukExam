@@ -1,0 +1,13 @@
+/* span
+{
+    display: inline-block;
+    background-color: red;
+    padding: 4px 10px;
+
+    border: rgb(255, 255, 255) 2px solid;
+    border-radius: 4px;
+}
+.active
+{
+    background-color: yellow;
+} */

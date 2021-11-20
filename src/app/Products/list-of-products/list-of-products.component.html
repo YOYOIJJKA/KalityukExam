@@ -1,0 +1,44 @@
+<div class="container d-flex flex-wrap" style="column-gap: 10px; align-items: center;">
+    <label class="form-control" style="border: 0px;">Фильтр: 
+        <select [(ngModel)]="SelectedCategory" id="category" class="form-control" style="display: inline-block; width: auto;" [selectedIndex]="0">
+        <option value="0">Все категории</option>
+         <option value="1">Мебель</option>
+         <option value="2">Техника</option>
+         <option value="3">Книги</option>
+         <option value="4">Телефоны</option>
+       </select> 
+    </label>
+    <input type="checkbox" class="" id="checkavailable" (click)=" SortElements()" style="user-select: none;">
+    <label for="checkavailable" class="label label-default" style="user-select: none;">Показать только имеющиеся</label>
+</div>
+<div class="container d-flex flex-wrap" style="column-gap: 4px;">
+    <button [ngClass]="{'CurrentButton': !descend}" class="btn btn-light" (click)="SortType(1)" >Сортировать по возрастанию</button>
+    <button [ngClass]="{'CurrentButton': descend}" class="btn btn-light" (click)="SortType(2)" >Сортировать по убыванию</button>
+    <select [(ngModel)]="SelectedSort" class="form-control" style="display: inline-block; border-radius: 5px; width: auto;">
+        <option value=1>По цене</option>
+        <option value=2>По количеству</option>
+    </select>
+</div>
+<div class="container d-flex flex-wrap" style="column-gap: 10px; row-gap: 10px;">
+    <div class="card"  style="width: 18rem;"*ngFor="let product of  SortElements()" >
+        <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{product.category}}</h6>
+            <p class="card-text">Цена: {{product.price}}</p>
+            <ng-container *ngIf="product.producer==''; else elseTemplate">
+                <p class="card-text">Производитель не указан</p>
+            </ng-container>
+              <ng-template #elseTemplate>
+                  <p class="card-text">Производитель: {{product.producer}}</p>
+              </ng-template>
+            <p class="card-text">Вес: {{product.weight}}</p>
+            <p class="card-text">Кол-во: {{product.amount}} 
+                <button type="button" class="btn btn-primary" style="padding: 4px 12px;" (click)="plusAmount(product)">+</button>
+                <button type="button" class="btn btn-danger" style="padding: 4px 12px;" (click)="minusAmount(product)">-</button>
+            </p>
+            <button type="button" class="btn btn-primary" [routerLink] = "'/adding/'+product.id">Редактировать</button>
+
+            <button type="button" class="btn btn-danger"  (click)="deleteProduct(product.id||0)">Удалить</button>
+        </div>
+    </div>
+</div>
